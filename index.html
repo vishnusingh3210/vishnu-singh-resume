@@ -5,316 +5,318 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vishnu Singh | Server & Virtualization Engineer</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --bg: #020617;
-  --card: rgba(2,6,23,0.92);
-  --text: #e5e7eb;
-  --accent1: #22c55e;
-  --accent2: #a855f7;
-  --border: #1e293b;
+:root{
+  --dark:#0b1220;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.15);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#7dd3fc;
 }
 
-.light {
-  --bg: #f8fafc;
-  --card: rgba(255,255,255,0.9);
-  --text: #0f172a;
-  --border: #cbd5f5;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
 
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: var(--text);
+body{
   background:
-    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0),
-    linear-gradient(135deg, #020617, #020617);
-  background-size: 22px 22px;
-  transition: background 0.3s, color 0.3s;
+    radial-gradient(circle at 20% 30%, #334155, transparent 40%),
+    radial-gradient(circle at 80% 70%, #475569, transparent 40%),
+    linear-gradient(135deg,#020617,#020617);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-/* floating glow */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(34,197,94,0.15), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(168,85,247,0.15), transparent 40%);
-  z-index: -1;
+/* ===== Layout ===== */
+.wrapper{display:flex;min-height:100vh}
+
+/* ===== Sidebar ===== */
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg,#020617,#020617cc);
+  padding:30px 20px;
+  position:fixed;
+  height:100%;
+  border-right:1px solid var(--border);
 }
 
-.container {
-  max-width: 1150px;
-  margin: auto;
-  padding: 40px 25px;
+.profile{
+  text-align:center;
+  margin-bottom:40px;
 }
 
-/* toggle */
-.toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: linear-gradient(90deg, var(--accent1), var(--accent2));
-  border: none;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 20px;
-  cursor: pointer;
+.profile img{
+  width:120px;height:120px;
+  border-radius:50%;
+  border:3px solid var(--accent);
+  object-fit:cover;
 }
 
-/* header */
-.header {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: 50px;
+.profile h2{margin-top:12px;font-size:20px}
+.profile p{font-size:13px;color:var(--muted)}
+
+.menu a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  margin-bottom:8px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--muted);
+  transition:.3s;
 }
 
-.profile-pic {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  background:
-    linear-gradient(var(--bg), var(--bg)) padding-box,
-    linear-gradient(135deg, var(--accent1), var(--accent2)) border-box;
-  border: 4px solid transparent;
+.menu a:hover,
+.menu a.active{
+  background:var(--glass);
+  color:#fff;
 }
 
-.header h1 {
-  font-size: 42px;
-  margin: 0;
-  background: linear-gradient(90deg, var(--accent1), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ===== Main ===== */
+.main{
+  margin-left:260px;
+  width:100%;
 }
 
-.header p {
-  margin: 6px 0;
-  color: #cbd5f5;
+/* ===== Hero ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
 }
 
-/* sections */
-.section {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 32px;
-  margin-bottom: 32px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
+.hero-content{
+  max-width:900px;
+  animation:fadeUp 1.2s ease;
 }
 
-.section.show {
-  opacity: 1;
-  transform: translateY(0);
+.hero h1{
+  font-size:42px;
+  font-weight:600;
 }
 
-.section h2 {
-  margin-top: 0;
-  background: linear-gradient(90deg, var(--accent1), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hero h1 span{
+  color:var(--accent);
 }
 
-/* skills */
-.skill {
-  margin-bottom: 15px;
+.hero h2{
+  font-weight:400;
+  margin-top:12px;
+  color:#d1d5db;
 }
 
-.bar {
-  height: 10px;
-  background: #1e293b;
-  border-radius: 10px;
-  overflow: hidden;
+.hero p{
+  margin-top:20px;
+  line-height:1.8;
+  color:#cbd5f5;
 }
 
-.bar div {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+.hero button{
+  margin-top:35px;
+  padding:14px 28px;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#7dd3fc,#38bdf8);
+  color:#020617;
+  transition:.3s;
 }
 
-/* grid lists */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 15px;
+.hero button:hover{transform:translateY(-3px)}
+
+/* ===== Sections ===== */
+.section{
+  padding:80px 10%;
 }
 
-.badge {
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(168,85,247,0.12));
-  border: 1px solid var(--border);
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:35px;
+  margin-bottom:40px;
+  backdrop-filter:blur(14px);
+  opacity:0;
+  transform:translateY(40px);
+  transition:.8s;
 }
 
-/* download */
-.download {
-  text-align: center;
-  padding: 30px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(34,197,94,0.18), rgba(168,85,247,0.18));
+.card.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-.download a {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--accent1);
-  text-decoration: none;
+.card h3{
+  font-size:24px;
+  margin-bottom:18px;
+  color:var(--accent);
 }
 
-footer {
-  text-align: center;
-  margin-top: 50px;
-  color: #64748b;
+.card ul{padding-left:18px}
+.card li{margin-bottom:10px;color:#e5e7eb}
+
+/* ===== Skills ===== */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
 }
 
-@media (max-width: 768px) {
-  .header {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+.skill{
+  padding:14px 18px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid var(--border);
+}
+
+/* ===== Footer ===== */
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{margin-left:0}
 }
 </style>
 </head>
 
 <body>
 
-<button class="toggle" onclick="toggleTheme()">🌗 Theme</button>
+<div class="wrapper">
 
-<div class="container">
+<!-- ===== Sidebar ===== -->
+<aside class="sidebar">
+  <div class="profile">
+    <img src="profile.jpg" alt="Vishnu Singh">
+    <h2>Vishnu Singh</h2>
+    <p>Server & Virtualization Engineer</p>
+  </div>
 
-<!-- HEADER -->
-<div class="header">
-  <img src="profile.jpg" alt="Vishnu Singh" class="profile-pic">
-  <div>
-    <h1>Vishnu Singh</h1>
-    <p><strong>Server & Virtualization Engineer</strong></p>
+  <nav class="menu">
+    <a href="#intro" class="active">Intro</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+  </nav>
+</aside>
+
+<!-- ===== Main ===== -->
+<div class="main">
+
+<!-- HERO -->
+<section class="hero" id="intro">
+  <div class="hero-content">
+    <h1>Hi! I'm <span>Vishnu Singh</span></h1>
+    <h2>Server & Virtualization Engineer</h2>
+
     <p>
-      📧 ucc.vishnusingh3210@gmail.com<br>
-      📞 +91-6397228712 / 7300728712<br>
-      📍 Mathura, Uttar Pradesh, India
+      Server & Virtualization Engineer with <strong>4+ years of experience</strong>
+      managing enterprise data centers, GPU servers, VMware, Linux & Windows platforms.
+      Specialized in <strong>GPU server provisioning, virtualization, backup systems,
+      power utilization analysis, and cloud infrastructure operations</strong>.
     </p>
+
+    <button onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">
+      Explore My Professional Experience
+    </button>
   </div>
-</div>
-
-<!-- PROFILE -->
-<div class="section">
-  <h2>Professional Summary</h2>
-  <p>
-    Server & Virtualization Engineer with <strong>4+ years of experience</strong>
-    in Linux, Windows, VMware, and enterprise data center operations.
-    Proven expertise in GPU server provisioning, RAID/NVMe storage,
-    backup systems, and large-scale infrastructure management.
-  </p>
-</div>
-
-<!-- SKILLS -->
-<div class="section">
-  <h2>Core Technical Skills</h2>
-
-  <div class="skill">Linux (Ubuntu, Rocky, RHEL)
-    <div class="bar"><div style="width:90%"></div></div>
-  </div>
-
-  <div class="skill">Windows Server (2012–2022)
-    <div class="bar"><div style="width:85%"></div></div>
-  </div>
-
-  <div class="skill">VMware / ESXi / vCenter
-    <div class="bar"><div style="width:90%"></div></div>
-  </div>
-
-  <div class="skill">CloudStack / Hyper-V
-    <div class="bar"><div style="width:80%"></div></div>
-  </div>
-
-  <div class="skill">GPU Servers / NVMe / RAID
-    <div class="bar"><div style="width:88%"></div></div>
-  </div>
-</div>
+</section>
 
 <!-- EXPERIENCE -->
-<div class="section">
-  <h2>Professional Experience</h2>
+<section class="section" id="experience">
+  <div class="card">
+    <h3>E2E Networks Pvt. Ltd — Server Engineer</h3>
+    <ul>
+      <li>Managing 1200+ GPU & CPU servers (Dell XE9680, ASUS, NVIDIA, Supermicro H100/H200)</li>
+      <li>Firmware upgrades, RAID/NVMe configuration, and server provisioning</li>
+      <li>Power consumption analysis for 500+ racks (monthly reporting)</li>
+      <li>Asset inventory & DC operations management</li>
+    </ul>
+  </div>
 
-  <p><strong>E2E Networks Pvt. Ltd</strong> — Server Engineer (Apr 2025 – Present)</p>
-  <ul>
-    <li>Managing 1200+ physical GPU & CPU servers (Dell, ASUS, Supermicro, NVIDIA)</li>
-    <li>Linux & Windows server provisioning and firmware upgrades</li>
-    <li>Power utilization analysis for 500+ racks</li>
-    <li>Asset inventory and DC operations management</li>
-  </ul>
+  <div class="card">
+    <h3>Zindagi Technologies — Consultant (Server & Virtualization)</h3>
+    <ul>
+      <li>VMware, Hyper-V, CloudStack administration</li>
+      <li>Active Directory, DNS, DHCP, GPO, WSUS</li>
+      <li>Commvault & Veritas backup operations</li>
+      <li>P2V / V2V migrations & DR drills</li>
+    </ul>
+  </div>
+</section>
 
-  <p><strong>Zindagi Technologies Pvt. Ltd</strong> — Consultant (Jul 2022 – Apr 2025)</p>
-  <ul>
-    <li>VMware, Hyper-V & CloudStack administration</li>
-    <li>Active Directory, DNS, DHCP, GPO management</li>
-    <li>Commvault & Veritas backup operations</li>
-    <li>P2V / V2V migrations and DR drills</li>
-  </ul>
-</div>
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="card">
+    <h3>Core Technical Skills</h3>
+    <div class="skills">
+      <div class="skill">Linux (Ubuntu, Rocky, RHEL, CentOS)</div>
+      <div class="skill">Windows Server 2012–2022</div>
+      <div class="skill">VMware / ESXi / vCenter</div>
+      <div class="skill">CloudStack / Hyper-V / KVM</div>
+      <div class="skill">GPU Servers (H100 / H200)</div>
+      <div class="skill">RAID / NVMe / SAN Storage</div>
+      <div class="skill">Commvault & Veritas Backup</div>
+      <div class="skill">Grafana / Prometheus / Zabbix</div>
+    </div>
+  </div>
+</section>
 
 <!-- PROJECTS -->
-<div class="section">
-  <h2>Key Projects</h2>
-  <div class="grid">
-    <div class="badge">CSC e-Governance – Windows, AD & Backup Infrastructure</div>
-    <div class="badge">University of Chicago – IT Administration</div>
-    <div class="badge">GPU Cloud Provisioning (H100 / H200)</div>
+<section class="section" id="projects">
+  <div class="card">
+    <h3>Key Projects</h3>
+    <ul>
+      <li>CSC e-Governance – Windows, AD & Backup Infrastructure</li>
+      <li>University of Chicago – IT Administration</li>
+      <li>GPU Cloud Provisioning Platform</li>
+    </ul>
   </div>
-</div>
+</section>
 
 <!-- EDUCATION -->
-<div class="section">
-  <h2>Education</h2>
-  <ul>
-    <li>MA – Dr. Bhimrao Ambedkar University, Agra (2023)</li>
-    <li>BCA – SVSU, Meerut (2021)</li>
-  </ul>
-</div>
-
-<!-- TOOLS -->
-<div class="section">
-  <h2>Tools & Technologies</h2>
-  <div class="grid">
-    <div class="badge">Grafana</div>
-    <div class="badge">Zabbix</div>
-    <div class="badge">Prometheus</div>
-    <div class="badge">Commvault</div>
-    <div class="badge">Veritas</div>
-    <div class="badge">Azure</div>
+<section class="section" id="education">
+  <div class="card">
+    <h3>Education</h3>
+    <ul>
+      <li>MA – Dr. Bhimrao Ambedkar University, Agra (2023)</li>
+      <li>BCA – SVSU, Meerut (2021)</li>
+    </ul>
   </div>
-</div>
-
-<!-- DOWNLOAD -->
-<div class="section download">
-  📄 <a href="Vishnu_Singh_Resume.pdf" target="_blank">Download Resume (PDF)</a>
-</div>
+</section>
 
 <footer>
-  © 2026 Vishnu Singh · GitHub Pages Resume
+  © 2026 Vishnu Singh · Hosted on GitHub Pages
 </footer>
 
 </div>
+</div>
 
 <script>
-function toggleTheme() {
-  document.body.classList.toggle("light");
-}
-
-const sections = document.querySelectorAll(".section");
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
-      sec.classList.add("show");
+const cards=document.querySelectorAll(".card");
+window.addEventListener("scroll",()=>{
+  cards.forEach(c=>{
+    if(c.getBoundingClientRect().top < window.innerHeight-100){
+      c.classList.add("show");
     }
-  });
+  })
 });
 </script>
 
