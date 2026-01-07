@@ -174,6 +174,51 @@ body{
   background:rgba(255,255,255,0.06);
   border:1px solid var(--border);
 }
+<!-- CONTACT & RESUME -->
+<section class="section" id="contact">
+  <div class="card contact-card">
+
+    <div class="contact-grid">
+
+      <!-- LEFT : Contact Info -->
+      <div>
+        <h3>Contact Information</h3>
+
+        <p><strong>Email:</strong><br>
+          <a href="mailto:ucc.vishnusingh3210@gmail.com">
+            ucc.vishnusingh3210@gmail.com
+          </a>
+        </p>
+
+        <p><strong>Phone:</strong><br>
+          +91-6397228712 / +91-7300728712
+        </p>
+
+        <p><strong>Location:</strong><br>
+          Mathura, Uttar Pradesh, India
+        </p>
+
+        <p><strong>Languages:</strong><br>
+          English, Hindi
+        </p>
+      </div>
+
+      <!-- RIGHT : Resume Preview -->
+      <div class="resume-box">
+        <h3>Resume</h3>
+
+        <div class="resume-preview">
+          <img src="resume-preview.png" alt="Resume Preview">
+        </div>
+
+        <a href="Vishnu_Singh_Resume.pdf" download class="resume-btn">
+          📄 Download Resume (PDF)
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 /* ===== Footer ===== */
 footer{
@@ -192,6 +237,66 @@ footer{
 @media(max-width:900px){
   .sidebar{display:none}
   .main{margin-left:0}
+}
+  /* ===== Contact Resume Section ===== */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.contact-card p{
+  margin:16px 0;
+  color:#cbd5f5;
+  line-height:1.6;
+}
+
+.contact-card a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.resume-box{
+  text-align:center;
+}
+
+.resume-preview{
+  width:100%;
+  max-width:260px;
+  margin:15px auto 20px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.06);
+}
+
+.resume-preview img{
+  width:100%;
+  display:block;
+}
+
+.resume-btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#7dd3fc,#38bdf8);
+  color:#020617;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.resume-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .contact-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
 }
 </style>
 </head>
