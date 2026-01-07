@@ -1,122 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vishnu Singh | Server & Virtualization Engineer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishnu Singh | Server & Virtualization Engineer</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-    }
-    h1, h2 {
-      color: #1f2937;
-    }
-    h1 {
-      border-bottom: 2px solid #2563eb;
-      padding-bottom: 10px;
-    }
-    .section {
-      margin-bottom: 25px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    .tag {
-      display: inline-block;
-      background: #e5edff;
-      color: #1e40af;
-      padding: 5px 10px;
-      margin: 5px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-  </style>
+<style>
+:root {
+  --bg-dark: #020617;
+  --card-bg: #020617;
+  --text-main: #e5e7eb;
+  --accent1: #22c55e;
+  --accent2: #a855f7;
+  --border: #1e293b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #020617, #020617, #020617);
+  color: var(--text-main);
+}
+
+.container {
+  max-width: 950px;
+  margin: auto;
+  padding: 40px 25px;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeDown 1s ease;
+}
+
+header h1 {
+  font-size: 38px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: #cbd5f5;
+  font-size: 18px;
+}
+
+.contact a {
+  color: var(--accent1);
+  text-decoration: none;
+}
+
+/* ---------- SECTIONS ---------- */
+.section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.4s; }
+.section:nth-child(4) { animation-delay: 0.6s; }
+.section:nth-child(5) { animation-delay: 0.8s; }
+
+.section h2 {
+  margin-top: 0;
+  font-size: 24px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- SKILLS ---------- */
+.skills span {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 6px;
+  background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(168,85,247,0.15));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* ---------- EXPERIENCE ---------- */
+h3 {
+  color: #93c5fd;
+  margin-bottom: 5px;
+}
+
+ul {
+  padding-left: 18px;
+}
+
+/* ---------- DOWNLOAD ---------- */
+.download {
+  text-align: center;
+  padding: 25px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(168,85,247,0.15));
+  border: 1px solid var(--border);
+}
+
+.download a {
+  color: var(--accent1);
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
 
-    <h1>Vishnu Singh</h1>
-    <p><strong>Server & Virtualization Engineer</strong></p>
-    <p>
-      📧 <a href="mailto:ucc.vishnusingh3210@gmail.com">ucc.vishnusingh3210@gmail.com</a><br>
-      📞 +91-6397228712 / 7300728712<br>
-      📍 Mathura, Uttar Pradesh, India
-    </p>
+<div class="container">
 
-    <div class="section">
-      <h2>Profile</h2>
-      <p>
-        Server & Virtualization Engineer with 4+ years of experience managing
-        Linux, Windows, virtualization platforms, and large-scale data center
-        infrastructure.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Technical Skills</h2>
-      <div class="tag">Linux (Ubuntu, Rocky, RHEL)</div>
-      <div class="tag">Windows Server</div>
-      <div class="tag">VMware / ESXi / vCenter</div>
-      <div class="tag">Hyper-V</div>
-      <div class="tag">CloudStack</div>
-      <div class="tag">Azure</div>
-      <div class="tag">NVMe / RAID</div>
-      <div class="tag">Grafana / Zabbix</div>
-      <div class="tag">Commvault / Veritas</div>
-    </div>
-
-    <div class="section">
-      <h2>Experience</h2>
-      <h3>E2E Networks Pvt. Ltd — Server Engineer</h3>
-      <p><em>April 2025 – Present</em></p>
-      <ul>
-        <li>Managed 1200+ physical GPU & CPU servers</li>
-        <li>Linux & Windows server provisioning</li>
-        <li>Firmware upgrades and DC operations</li>
-      </ul>
-
-      <h3>Zindagi Technologies — Consultant (Server & Virtualization)</h3>
-      <p><em>July 2022 – April 2025</em></p>
-      <ul>
-        <li>VMware, Hyper-V, CloudStack administration</li>
-        <li>Active Directory, DNS, DHCP, GPO</li>
-        <li>Commvault backup & DR management</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Education</h2>
-      <ul>
-        <li>MA — Dr. Bhimrao Ambedkar University (2023)</li>
-        <li>BCA — SVSU Meerut (2021)</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Download Resume</h2>
-      <p>
-        📄 <a href="Vishnu_Singh_Resume.pdf" target="_blank">
-        Download PDF Resume
-        </a>
-      </p>
-    </div>
-
+<header>
+  <h1>Vishnu Singh</h1>
+  <p>Server & Virtualization Engineer</p>
+  <div class="contact">
+    📧 <a href="mailto:ucc.vishnusingh3210@gmail.com">ucc.vishnusingh3210@gmail.com</a><br>
+    📞 +91-6397228712 / 7300728712<br>
+    📍 Mathura, Uttar Pradesh, India
   </div>
+</header>
+
+<div class="section">
+  <h2>Profile</h2>
+  <p>
+    Server & Virtualization Engineer with 4+ years of experience managing Linux,
+    Windows, VMware, CloudStack, and large-scale data center infrastructure.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <span>Linux (Ubuntu, Rocky, RHEL)</span>
+    <span>Windows Server</span>
+    <span>VMware / ESXi / vCenter</span>
+    <span>Hyper-V</span>
+    <span>CloudStack</span>
+    <span>Microsoft Azure</span>
+    <span>NVMe / RAID</span>
+    <span>Grafana / Zabbix</span>
+    <span>Commvault / Veritas</span>
+    <span>GPU Servers</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Experience</h2>
+
+  <h3>E2E Networks Pvt. Ltd — Server Engineer</h3>
+  <p><em>April 2025 – Present</em></p>
+  <ul>
+    <li>Managing 1200+ physical GPU & CPU servers</li>
+    <li>Linux & Windows provisioning</li>
+    <li>Firmware upgrades & DC operations</li>
+  </ul>
+
+  <h3>Zindagi Technologies — Consultant (Server & Virtualization)</h3>
+  <p><em>July 2022 – April 2025</em></p>
+  <ul>
+    <li>VMware, Hyper-V & CloudStack administration</li>
+    <li>Active Directory, DNS, DHCP, GPO</li>
+    <li>Commvault backup & DR compliance</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Education</h2>
+  <ul>
+    <li>MA — Dr. Bhimrao Ambedkar University (2023)</li>
+    <li>BCA — SVSU Meerut (2021)</li>
+  </ul>
+</div>
+
+<div class="section download">
+  📄 <a href="Vishnu_Singh_Resume.pdf" target="_blank">
+    Download Resume (PDF)
+  </a>
+</div>
+
+<footer>
+  © 2026 Vishnu Singh · GitHub Pages Resume
+</footer>
+
+</div>
+
 </body>
 </html>
