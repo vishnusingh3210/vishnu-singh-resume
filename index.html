@@ -40,7 +40,6 @@ body{
   overflow-x:hidden;
 }
 
-/* Layout */
 .wrapper{display:flex;min-height:100vh}
 
 /* Sidebar */
@@ -62,13 +61,17 @@ body{
 .profile p{font-size:13px;color:var(--muted)}
 
 .menu a{
-  display:flex;gap:12px;
-  padding:12px 14px;margin-bottom:8px;
-  border-radius:12px;text-decoration:none;
-  color:var(--muted);transition:.3s;
+  display:flex;
+  padding:12px 14px;
+  margin-bottom:8px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--muted);
+  transition:.3s;
 }
 .menu a:hover,.menu a.active{
-  background:var(--glass);color:#fff;
+  background:var(--glass);
+  color:#fff;
 }
 
 /* Main */
@@ -77,8 +80,11 @@ body{
 /* Hero */
 .hero{
   min-height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:80px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
 }
 .hero-content{max-width:900px;animation:fadeUp 1.2s ease}
 .hero h1{font-size:42px}
@@ -86,24 +92,29 @@ body{
 .hero h2{margin-top:12px;color:#d1d5db;font-weight:400}
 .hero p{margin-top:20px;line-height:1.8;color:#cbd5f5}
 .hero button{
-  margin-top:35px;padding:14px 28px;
-  border:none;border-radius:14px;
-  font-size:16px;cursor:pointer;
+  margin-top:35px;
+  padding:14px 28px;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  cursor:pointer;
   background:linear-gradient(135deg,#7dd3fc,#38bdf8);
-  color:#020617;transition:.3s;
+  color:#020617;
+  transition:.3s;
 }
 .hero button:hover{transform:translateY(-3px)}
 
-/* Sections */
 .section{padding:80px 10%}
 
 .card{
   background:var(--glass);
   border:1px solid var(--border);
   border-radius:22px;
-  padding:35px;margin-bottom:40px;
+  padding:35px;
+  margin-bottom:40px;
   backdrop-filter:blur(14px);
-  opacity:0;transform:translateY(40px);
+  opacity:0;
+  transform:translateY(40px);
   transition:.8s;
 }
 .card.show{opacity:1;transform:translateY(0)}
@@ -124,19 +135,19 @@ body{
   border:1px solid var(--border);
 }
 
-/* Contact & Resume */
+/* Contact */
 .contact-grid{
   display:grid;
   grid-template-columns:1.2fr 1fr;
   gap:40px;
 }
-.contact-card p{margin:16px 0;color:#cbd5f5}
-.contact-card a{color:var(--accent);text-decoration:none}
 
 .resume-box{text-align:center}
 .resume-preview{
-  max-width:260px;margin:15px auto 20px;
-  border-radius:12px;overflow:hidden;
+  max-width:260px;
+  margin:15px auto 20px;
+  border-radius:12px;
+  overflow:hidden;
   border:1px solid var(--border);
 }
 .resume-preview img{width:100%}
@@ -146,12 +157,13 @@ body{
   padding:14px 28px;
   border-radius:14px;
   background:linear-gradient(135deg,#7dd3fc,#38bdf8);
-  color:#020617;font-weight:600;
-  text-decoration:none;transition:.3s;
+  color:#020617;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
 }
 .resume-btn:hover{transform:translateY(-3px)}
 
-/* Footer */
 footer{
   text-align:center;
   padding:30px;
@@ -159,7 +171,6 @@ footer{
   border-top:1px solid var(--border);
 }
 
-/* Animations */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(40px)}
   to{opacity:1;transform:translateY(0)}
@@ -179,14 +190,9 @@ footer{
 
 <aside class="sidebar">
   <div class="profile">
-    <img src="profile.jpg" alt="Vishnu Singh Profile Photo">
+    <img src="profile.jpg" alt="Vishnu Singh">
     <h2>Vishnu Singh</h2>
-    <p>
-      Server & Virtualization Engineer with <strong>4+ years of experience</strong>
-      managing enterprise data centers, GPU servers, VMware, Linux & Windows platforms.
-      Specialized in <strong>GPU server provisioning, virtualization, backup systems,
-      power utilization analysis, and cloud infrastructure operations</strong>.
-    </p>
+    <p>Server & Virtualization Engineer</p>
   </div>
 
   <nav class="menu">
@@ -201,13 +207,16 @@ footer{
 
 <div class="main">
 
+<!-- INTRO -->
 <section class="hero" id="intro">
   <div class="hero-content">
     <h1>Hi! I'm <span>Vishnu Singh</span></h1>
     <h2>Server & Virtualization Engineer</h2>
     <p>
-      4+ years experience managing enterprise data centers,
-      GPU servers, VMware, Linux & Windows platforms.
+      Server & Virtualization Engineer with <strong>4+ years of experience</strong>
+      managing enterprise data centers, GPU servers, VMware, Linux & Windows platforms.
+      Specialized in <strong>GPU server provisioning, virtualization, backup systems,
+      power utilization analysis, and cloud infrastructure operations</strong>.
     </p>
     <button onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">
       Explore My Experience
@@ -216,72 +225,67 @@ footer{
 </section>
 
 <!-- EXPERIENCE -->
-<div class="section">
-  <h2>Professional Experience</h2>
-
-  <p><strong>E2E Networks Pvt. Ltd</strong> — Server Engineer (Apr 2025 – Present)</p>
-  <ul>
-    <li>Managing 1200+ physical GPU & CPU servers (Dell, ASUS, Supermicro, NVIDIA)</li>
-    <li>Linux & Windows server provisioning and firmware upgrades</li>
-    <li>Power utilization analysis for 500+ racks</li>
-    <li>Asset inventory and DC operations management</li>
-  </ul>
-
-  <p><strong>Zindagi Technologies Pvt. Ltd</strong> — Consultant (Jul 2022 – Apr 2025)</p>
-  <ul>
-    <li>VMware, Hyper-V & CloudStack administration</li>
-    <li>Active Directory, DNS, DHCP, GPO management</li>
-    <li>Commvault & Veritas backup operations</li>
-    <li>P2V / V2V migrations and DR drills</li>
-  </ul>
-</div>
-
-<!-- PROJECTS -->
-<div class="section">
-  <h2>Key Projects</h2>
-  <div class="grid">
-    <div class="badge">CSC e-Governance – Windows, AD & Backup Infrastructure</div>
-    <div class="badge">University of Chicago – IT Administration</div>
-    <div class="badge">GPU Cloud Provisioning (H100 / H200)</div>
+<section class="section" id="experience">
+  <div class="card">
+    <h3>E2E Networks Pvt. Ltd — Server Engineer</h3>
+    <ul>
+      <li>Managing 1200+ GPU & CPU servers (Dell, ASUS, Supermicro, NVIDIA)</li>
+      <li>Linux & Windows server provisioning and firmware upgrades</li>
+      <li>Power utilization analysis for 500+ racks</li>
+      <li>Asset inventory and DC operations management</li>
+    </ul>
   </div>
-</div>
 
-<!-- EDUCATION -->
-<div class="section">
-  <h2>Education</h2>
-  <ul>
-    <li>MA – Dr. Bhimrao Ambedkar University, Agra (2023)</li>
-    <li>BCA – SVSU, Meerut (2021)</li>
-  </ul>
-</div>
-
-<!-- TOOLS -->
-<div class="section">
-  <h2>Tools & Technologies</h2>
-  <div class="grid">
-    <div class="badge">Grafana</div>
-    <div class="badge">Zabbix</div>
-    <div class="badge">Prometheus</div>
-    <div class="badge">Commvault</div>
-    <div class="badge">Veritas</div>
-    <div class="badge">Azure</div>
+  <div class="card">
+    <h3>Zindagi Technologies Pvt. Ltd — Consultant</h3>
+    <ul>
+      <li>VMware, Hyper-V & CloudStack administration</li>
+      <li>Active Directory, DNS, DHCP, GPO</li>
+      <li>Commvault & Veritas backup operations</li>
+      <li>P2V / V2V migrations and DR drills</li>
+    </ul>
   </div>
-</div>
+</section>
 
+<!-- SKILLS -->
 <section class="section" id="skills">
   <div class="card">
     <h3>Core Technical Skills</h3>
     <div class="skills">
       <div class="skill">Linux / Windows Server</div>
       <div class="skill">VMware / ESXi / vCenter</div>
-      <div class="skill">GPU Servers H100 / H200</div>
+      <div class="skill">GPU Servers (H100 / H200)</div>
       <div class="skill">Commvault / Veritas</div>
     </div>
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="card">
+    <h3>Key Projects</h3>
+    <ul>
+      <li>CSC e-Governance – Windows, AD & Backup Infrastructure</li>
+      <li>University of Chicago – IT Administration</li>
+      <li>GPU Cloud Provisioning Platform</li>
+    </ul>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="card">
+    <h3>Education</h3>
+    <ul>
+      <li>MA – Dr. Bhimrao Ambedkar University, Agra (2023)</li>
+      <li>BCA – SVSU, Meerut (2021)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section class="section" id="contact">
-  <div class="card contact-card">
+  <div class="card">
     <div class="contact-grid">
       <div>
         <h3>Contact Information</h3>
@@ -289,6 +293,7 @@ footer{
         <p>Phone: +91-6397228712 / 7300728712</p>
         <p>Location: Mathura, UP, India</p>
       </div>
+
       <div class="resume-box">
         <h3>Resume</h3>
         <div class="resume-preview">
@@ -314,7 +319,7 @@ window.addEventListener("scroll",()=>{
     if(c.getBoundingClientRect().top < window.innerHeight-100){
       c.classList.add("show");
     }
-  })
+  });
 });
 </script>
 
