@@ -6,14 +6,15 @@
 Personal Portfolio Website
 Author: Vishnu Singh
 Role: Server & Virtualization Engineer
-Description: Professional portfolio showcasing experience in GPU servers, virtualization, data centers, and infrastructure operations.
+Description: Professional portfolio showcasing experience in GPU servers,
+virtualization, data centers, backup, monitoring and infrastructure operations.
 -->
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="Vishnu Singh – Server & Virtualization Engineer with 4+ years experience in GPU servers, VMware, Linux, Windows, and data center operations.">
+content="Vishnu Singh – Server & Virtualization Engineer with 4+ years experience in GPU servers, VMware, Linux, Windows, and enterprise data center operations.">
 
 <title>Vishnu Singh | Server & Virtualization Engineer</title>
 
@@ -21,7 +22,6 @@ content="Vishnu Singh – Server & Virtualization Engineer with 4+ years experie
 
 <style>
 :root{
-  --dark:#0b1220;
   --glass:rgba(255,255,255,0.08);
   --border:rgba(255,255,255,0.15);
   --text:#e5e7eb;
@@ -40,6 +40,26 @@ body{
   overflow-x:hidden;
 }
 
+/* Floating Orbs */
+.orb{
+  position:fixed;
+  width:320px;
+  height:320px;
+  background:radial-gradient(circle,#38bdf8,transparent 60%);
+  opacity:.15;
+  filter:blur(90px);
+  animation:float 20s infinite ease-in-out;
+  z-index:-1;
+}
+.orb.one{top:10%;left:5%}
+.orb.two{bottom:10%;right:10%;animation-duration:26s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-90px)}
+}
+
+/* Layout */
 .wrapper{display:flex;min-height:100vh}
 
 /* Sidebar */
@@ -52,16 +72,17 @@ body{
   border-right:1px solid var(--border);
 }
 
-.profile{text-align:center;margin-bottom:40px}
+.profile{text-align:center;margin-bottom:35px}
 .profile img{
   width:120px;height:120px;border-radius:50%;
-  border:3px solid var(--accent);object-fit:cover;
+  border:3px solid var(--accent);
+  object-fit:cover;
 }
 .profile h2{margin-top:12px;font-size:20px}
-.profile p{font-size:13px;color:var(--muted)}
+.profile p{font-size:13px;color:var(--muted);line-height:1.6}
 
 .menu a{
-  display:flex;
+  display:block;
   padding:12px 14px;
   margin-bottom:8px;
   border-radius:12px;
@@ -91,6 +112,7 @@ body{
 .hero h1 span{color:var(--accent)}
 .hero h2{margin-top:12px;color:#d1d5db;font-weight:400}
 .hero p{margin-top:20px;line-height:1.8;color:#cbd5f5}
+
 .hero button{
   margin-top:35px;
   padding:14px 28px;
@@ -102,8 +124,12 @@ body{
   color:#020617;
   transition:.3s;
 }
-.hero button:hover{transform:translateY(-3px)}
+.hero button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 22px rgba(125,211,252,.6);
+}
 
+/* Sections */
 .section{padding:80px 10%}
 
 .card{
@@ -118,20 +144,48 @@ body{
   transition:.8s;
 }
 .card.show{opacity:1;transform:translateY(0)}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(125,211,252,.15);
+}
+
 .card h3{margin-bottom:18px;color:var(--accent)}
 .card ul{padding-left:18px}
-.card li{margin-bottom:10px}
+.card li{margin-bottom:10px;line-height:1.6}
 
-/* Skills */
-.skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
+/* Skill Graphs */
+.skill-bar{margin-top:18px}
+.skill-bar span{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  color:#cbd5f5;
 }
-.skill{
-  padding:14px 18px;
+.bar{
+  height:10px;
+  background:rgba(255,255,255,.1);
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:6px;
+}
+.bar-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#7dd3fc,#38bdf8);
+  border-radius:10px;
+  transition:width 1.5s ease;
+}
+
+/* Grid badges */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+}
+.badge{
+  padding:12px 16px;
   border-radius:14px;
-  background:rgba(255,255,255,0.06);
+  background:rgba(255,255,255,.06);
   border:1px solid var(--border);
 }
 
@@ -141,11 +195,8 @@ body{
   grid-template-columns:1.2fr 1fr;
   gap:40px;
 }
-
-.resume-box{text-align:center}
 .resume-preview{
-  max-width:260px;
-  margin:15px auto 20px;
+  max-width:260px;margin:15px auto;
   border-radius:12px;
   overflow:hidden;
   border:1px solid var(--border);
@@ -154,6 +205,7 @@ body{
 
 .resume-btn{
   display:inline-block;
+  margin-top:10px;
   padding:14px 28px;
   border-radius:14px;
   background:linear-gradient(135deg,#7dd3fc,#38bdf8);
@@ -162,8 +214,12 @@ body{
   text-decoration:none;
   transition:.3s;
 }
-.resume-btn:hover{transform:translateY(-3px)}
+.resume-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 22px rgba(125,211,252,.6);
+}
 
+/* Footer */
 footer{
   text-align:center;
   padding:30px;
@@ -171,6 +227,7 @@ footer{
   border-top:1px solid var(--border);
 }
 
+/* Animation */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(40px)}
   to{opacity:1;transform:translateY(0)}
@@ -186,13 +243,19 @@ footer{
 
 <body>
 
+<div class="orb one"></div>
+<div class="orb two"></div>
+
 <div class="wrapper">
 
 <aside class="sidebar">
   <div class="profile">
     <img src="profile.jpg" alt="Vishnu Singh">
     <h2>Vishnu Singh</h2>
-    <p>Server & Virtualization Engineer</p>
+    <p>
+      Server & Virtualization Engineer with <strong>4+ years of experience</strong>
+      in Linux, Windows, VMware, GPU servers, backups and enterprise DC operations.
+    </p>
   </div>
 
   <nav class="menu">
@@ -201,22 +264,21 @@ footer{
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#education">Education</a>
+    <a href="#tools">Tools</a>
     <a href="#contact">Contact</a>
   </nav>
 </aside>
 
 <div class="main">
 
-<!-- INTRO -->
+<!-- HERO -->
 <section class="hero" id="intro">
   <div class="hero-content">
     <h1>Hi! I'm <span>Vishnu Singh</span></h1>
     <h2>Server & Virtualization Engineer</h2>
     <p>
-      Server & Virtualization Engineer with <strong>4+ years of experience</strong>
-      managing enterprise data centers, GPU servers, VMware, Linux & Windows platforms.
-      Specialized in <strong>GPU server provisioning, virtualization, backup systems,
-      power utilization analysis, and cloud infrastructure operations</strong>.
+      4+ years experience managing enterprise data centers,
+      GPU servers, VMware, Linux & Windows platforms.
     </p>
     <button onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">
       Explore My Experience
@@ -227,9 +289,9 @@ footer{
 <!-- EXPERIENCE -->
 <section class="section" id="experience">
   <div class="card">
-    <h3>E2E Networks Pvt. Ltd — Server Engineer</h3>
+    <h3>E2E Networks Pvt. Ltd — Server Engineer (Apr 2025 – Present)</h3>
     <ul>
-      <li>Managing 1200+ GPU & CPU servers (Dell, ASUS, Supermicro, NVIDIA)</li>
+      <li>Managing 1200+ physical GPU & CPU servers (Dell, ASUS, Supermicro, NVIDIA)</li>
       <li>Linux & Windows server provisioning and firmware upgrades</li>
       <li>Power utilization analysis for 500+ racks</li>
       <li>Asset inventory and DC operations management</li>
@@ -237,10 +299,10 @@ footer{
   </div>
 
   <div class="card">
-    <h3>Zindagi Technologies Pvt. Ltd — Consultant</h3>
+    <h3>Zindagi Technologies Pvt. Ltd — Consultant (Jul 2022 – Apr 2025)</h3>
     <ul>
       <li>VMware, Hyper-V & CloudStack administration</li>
-      <li>Active Directory, DNS, DHCP, GPO</li>
+      <li>Active Directory, DNS, DHCP, GPO management</li>
       <li>Commvault & Veritas backup operations</li>
       <li>P2V / V2V migrations and DR drills</li>
     </ul>
@@ -251,11 +313,25 @@ footer{
 <section class="section" id="skills">
   <div class="card">
     <h3>Core Technical Skills</h3>
-    <div class="skills">
-      <div class="skill">Linux / Windows Server</div>
-      <div class="skill">VMware / ESXi / vCenter</div>
-      <div class="skill">GPU Servers (H100 / H200)</div>
-      <div class="skill">Commvault / Veritas</div>
+
+    <div class="skill-bar">
+      <span>Linux / Windows Server <strong>90%</strong></span>
+      <div class="bar"><div class="bar-fill" data-width="90%"></div></div>
+    </div>
+
+    <div class="skill-bar">
+      <span>VMware / ESXi / vCenter <strong>85%</strong></span>
+      <div class="bar"><div class="bar-fill" data-width="85%"></div></div>
+    </div>
+
+    <div class="skill-bar">
+      <span>GPU Servers (H100 / H200) <strong>88%</strong></span>
+      <div class="bar"><div class="bar-fill" data-width="88%"></div></div>
+    </div>
+
+    <div class="skill-bar">
+      <span>Commvault / Veritas Backup <strong>80%</strong></span>
+      <div class="bar"><div class="bar-fill" data-width="80%"></div></div>
     </div>
   </div>
 </section>
@@ -264,11 +340,11 @@ footer{
 <section class="section" id="projects">
   <div class="card">
     <h3>Key Projects</h3>
-    <ul>
-      <li>CSC e-Governance – Windows, AD & Backup Infrastructure</li>
-      <li>University of Chicago – IT Administration</li>
-      <li>GPU Cloud Provisioning Platform</li>
-    </ul>
+    <div class="grid">
+      <div class="badge">CSC e-Governance – Windows, AD & Backup Infrastructure</div>
+      <div class="badge">University of Chicago – IT Administration</div>
+      <div class="badge">GPU Cloud Provisioning (H100 / H200)</div>
+    </div>
   </div>
 </section>
 
@@ -283,6 +359,21 @@ footer{
   </div>
 </section>
 
+<!-- TOOLS -->
+<section class="section" id="tools">
+  <div class="card">
+    <h3>Tools & Technologies</h3>
+    <div class="grid">
+      <div class="badge">Grafana</div>
+      <div class="badge">Zabbix</div>
+      <div class="badge">Prometheus</div>
+      <div class="badge">Commvault</div>
+      <div class="badge">Veritas</div>
+      <div class="badge">Azure</div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="card">
@@ -291,10 +382,9 @@ footer{
         <h3>Contact Information</h3>
         <p>Email: ucc.vishnusingh3210@gmail.com</p>
         <p>Phone: +91-6397228712 / 7300728712</p>
-        <p>Location: Mathura, UP, India</p>
+        <p>Location: Mathura, Uttar Pradesh, India</p>
       </div>
-
-      <div class="resume-box">
+      <div style="text-align:center">
         <h3>Resume</h3>
         <div class="resume-preview">
           <img src="resume-preview.png" alt="Resume Preview">
@@ -314,10 +404,17 @@ footer{
 
 <script>
 const cards=document.querySelectorAll(".card");
+const bars=document.querySelectorAll(".bar-fill");
+
 window.addEventListener("scroll",()=>{
   cards.forEach(c=>{
     if(c.getBoundingClientRect().top < window.innerHeight-100){
       c.classList.add("show");
+    }
+  });
+  bars.forEach(b=>{
+    if(b.getBoundingClientRect().top < window.innerHeight-80){
+      b.style.width=b.dataset.width;
     }
   });
 });
